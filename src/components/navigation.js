@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
+import Img from 'gatsby-image'
 
-export default () => (
+export default ({image}) => (
   <nav role="navigation">
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
@@ -12,5 +13,6 @@ export default () => (
         <Link to="/blog/">Blog</Link>
       </li>
     </ul>
+    <p>{image} bloop</p>
   </nav>
 )

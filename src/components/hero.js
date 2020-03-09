@@ -3,17 +3,19 @@ import Img from 'gatsby-image'
 
 import styles from './hero.module.css'
 
-export default ({ data }) => (
+export default({data, img, scrollTo}, props) => (
   <div className={styles.hero}>
-    <Img
-      className={styles.heroImage}
-      alt={data.name}
-      fluid={data.heroImage.fluid}
-    />
-    <div className={styles.heroDetails}>
-      <h3 className={styles.heroHeadline}>{data.name}</h3>
-      <p className={styles.heroTitle}>{data.title}</p>
-      <p>{data.shortBio.shortBio}</p>
+    <Img fluid={img} className={styles.logo}/>
+    <div className={styles.container}>
+      <Img
+        className={styles.heroImage}
+        alt={data.heroImage.title}
+        fluid={data.heroImage.fluid}/>
+      <div className={styles.heroDetails}>
+        <h1 className={styles.heroHeadline}>{data.heading}</h1>
+        <h3 className={styles.heroTitle}>{data.subHeading}</h3>
+        <button className={styles.button} onClick={() => scrollTo()}>Sign Up</button>
+      </div>
     </div>
   </div>
 )
