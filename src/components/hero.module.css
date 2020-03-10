@@ -6,7 +6,7 @@
 }
 
 .logo {
-	max-width: 250px;
+  max-width: 250px;
   margin: auto;
 }
 
@@ -15,6 +15,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .heroImage {
@@ -22,16 +23,28 @@
     Ensure golden ratio for the hero size while limiting it to some extend to
     the viewport width
   */
-  width: 15vw;
+  /* flex: 1; */
   height: 50.2vh;
+  min-width: 250px;
+  width: 25vw;
   max-height: 480px;
-  margin-right: 25px;
 }
 
 .heroDetails {
   font-size: 14px;
   padding: 0 0.5em;
-  text-align: left;
+  min-width: 300px;
+}
+
+@media (min-width: 715px) {
+  .heroDetails {
+    text-align: left;
+  }
+
+  .heroImage {
+    right: 0px;
+    position: relative;
+  }
 }
 
 .button {
@@ -55,13 +68,13 @@
   background: #ccc;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .heroDetails {
     font-size: 16px;
   }
 }
 
-@media(min-width: 1000px) {
+@media (min-width: 1000px) {
   .heroDetails {
     font-size: 20px;
   }
