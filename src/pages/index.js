@@ -104,18 +104,24 @@ class RootIndex extends React.Component {
                 <label>
                   Your name:
                   <br />
-                  <input type="text" name="name" />
+                  <input className={styles.formInput} type="text" name="name" />
                 </label>
               </p>
               <p>
                 <label>
                   Your email:
                   <br />
-                  <input type="email" name="email" />
+                  <input
+                    className={styles.formInput}
+                    type="email"
+                    name="email"
+                  />
                 </label>
               </p>
               <p>
-                <button type="submit">Send</button>
+                <button className={styles.formButton} type="submit">
+                  SIGN UP
+                </button>
               </p>
             </form>
           </div>

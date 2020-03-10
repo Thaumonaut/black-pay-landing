@@ -1,11 +1,11 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import base from './base.css'
 import Container from './container'
 
 class Template extends React.Component {
   render() {
-    const {location, children} = this.props
+    const { location, children } = this.props
     let header
 
     let rootPath = `/`
@@ -17,11 +17,7 @@ class Template extends React.Component {
       <Container>
         {/* <Navigation image={"Test"} /> */}
         {children}
-        <div
-          style={{
-          width: "100vw",
-          textAlign: "center"
-        }}>COPYRIGHT © 2020 BLACK PAY</div>
+        <div className="copyright">COPYRIGHT © 2020 BLACK PAY</div>
       </Container>
     )
   }

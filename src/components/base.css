@@ -72,3 +72,10 @@ a {
 .list-inline li {
   display: inline-block;
 }
+
+.copyright {
+  width: 100vw;
+  text-align: center;
+  font-weight: bolder;
+  padding: 15px;
+}
