@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Oxanium:800|Saira:300,400&display=swap');
 
+html,
 body {
-  font-family: "Saira", Tahoma, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Saira', Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
   color: #fafafa;
@@ -17,7 +24,7 @@ img {
 h1,
 h2,
 h3 {
-  font-family: "Oxanium", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: 'Oxanium', Tahoma, Arial, Helvetica, sans-serif;
   font-size: 2em;
   font-weight: 900;
 }
