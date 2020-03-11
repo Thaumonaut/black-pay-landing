@@ -1,11 +1,15 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Black Pay",
+  "description": "A Better Way to Send Money",
   "keywords": [
     "contentful",
     "gatsby",
     "static",
-    "ssg"
+    "ssg",
+    "crypto",
+    "cryptocurrency",
+    "bitcoin",
+    "digital wallet"
   ],
   "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
   "success_url": "/",
