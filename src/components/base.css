@@ -79,3 +79,9 @@ a {
   font-weight: bolder;
   padding: 15px;
 }
+
+#countries {
+  height: 45px;
+  width: 326px;
+  background: white;
+}
