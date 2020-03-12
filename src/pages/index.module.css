@@ -45,6 +45,7 @@
 .partnerList img {
   margin: 15px 15px;
   max-width: 150px;
+  max-height: 150px;
   object-fit: contain;
 }
 
