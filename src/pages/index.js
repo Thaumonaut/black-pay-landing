@@ -1,11 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import styles from './index.module.css'
+import CountryDropdown from '../components/countries-dropdown'
 
 class RootIndex extends React.Component {
   constructor(props) {
@@ -14,11 +15,10 @@ class RootIndex extends React.Component {
   }
 
   scrollToElement() {
-    this.forms.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'center',
-    })
+    this
+      .forms
+      .current
+      .scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'})
   }
 
   render() {
@@ -26,26 +26,18 @@ class RootIndex extends React.Component {
     const testQuery = get(this, 'props.data.contentfulAsset')
     const hero = get(this, 'props.data.contentfulHeroSection')
 
-    const bulletPoints = get(
-      this,
-      'props.data.contentfulFeatureList.bulletPoint'
-    )
-    const partners = get(
-      this,
-      'props.data.contentfulPartnersList.partnerImages'
-    )
+    const bulletPoints = get(this, 'props.data.contentfulFeatureList.bulletPoint')
+    const partners = get(this, 'props.data.contentfulPartnersList.partnerImages')
     const panels = get(this, 'props.data.allContentfulFeaturePanel.edges')
 
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
+          <Helmet title={siteTitle}/>
           <Hero
             data={hero}
             img={testQuery.fluid}
-            scrollTo={() => this.scrollToElement()}
-          />{' '}
-          {/* Move to Components later */}
+            scrollTo={() => this.scrollToElement()}/>{' '} {/* Move to Components later */}
           {/* Bullet Points */}
           <div className={styles.bulletPoints}>
             <h2>Why Black Pay?</h2>
@@ -55,9 +47,8 @@ class RootIndex extends React.Component {
                   <img
                     src={point.icon.file.url}
                     style={{
-                      maxWidth: '100px',
-                    }}
-                  />
+                    maxWidth: '100px'
+                  }}/>
                   <h3>{point.heading}</h3>
                   <p>{point.description.description}</p>
                 </div>
@@ -68,16 +59,16 @@ class RootIndex extends React.Component {
           <div className={styles.partnerList}>
             <h2>Our Partners</h2>
             <div className={styles.listContainer}>
-              {partners.map((p, i) => (
-                <img src={p.file.url} key={i} />
-              ))}
+              {partners.map((p, i) => (<img src={p.file.url} key={i}/>))}
             </div>
           </div>
           {/* Feature Panels */}
-          {panels.map(({ node }, i) => (
+          {panels.map(({
+            node
+          }, i) => (
             <div id="panel" key={i} className={styles.panelContainer}>
               <div className={styles.panelImage}>
-                <Img className={styles.Image} fluid={node.image.fluid} />
+                <Img className={styles.Image} fluid={node.image.fluid}/>
               </div>
               <div className={styles.panelText}>
                 <h2>{node.title}</h2>
@@ -91,31 +82,34 @@ class RootIndex extends React.Component {
               name="contact"
               method="post"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
-            >
+              data-netlify-honeypot="bot-field">
               {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="form-name" value="contact"/>
               <p hidden>
                 <label>
-                  Don’t fill this out: <input name="bot-field" />
+                  Don’t fill this out:
+                  <input name="bot-field"/>
                 </label>
               </p>
               <p>
                 <label>
                   Your name:
-                  <br />
-                  <input className={styles.formInput} type="text" name="name" />
+                  <br/>
+                  <input className={styles.formInput} type="text" name="name"/>
                 </label>
               </p>
               <p>
                 <label>
                   Your email:
-                  <br />
-                  <input
-                    className={styles.formInput}
-                    type="email"
-                    name="email"
-                  />
+                  <br/>
+                  <input className={styles.formInput} type="email" name="email"/>
+                </label>
+              </p>
+              <p>
+                <label>
+                  Your country:
+                  <br/>
+                  <CountryDropdown></CountryDropdown>
                 </label>
               </p>
               <p>
@@ -133,7 +127,7 @@ class RootIndex extends React.Component {
 
 export default RootIndex
 
-export const pageQuery = graphql`
+export const pageQuery = graphql `
   query HomeQuery {
     site {
       siteMetadata {
