@@ -85,3 +85,7 @@ a {
   width: 326px;
   background: white;
 }
+
+.invertPanel {
+  order: 2;
+}

@@ -63,11 +63,9 @@ class RootIndex extends React.Component {
             </div>
           </div>
           {/* Feature Panels */}
-          {panels.map(({
-            node
-          }, i) => (
+          {panels.map(({node}, i) => (
             <div id="panel" key={i} className={styles.panelContainer}>
-              <div className={styles.panelImage}>
+              <div className={(i + 1 % 2 == 0 && "invertPanel") + " " + styles.panelImage}>
                 <Img className={styles.Image} fluid={node.image.fluid}/>
               </div>
               <div className={styles.panelText}>
