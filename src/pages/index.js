@@ -67,7 +67,7 @@ class RootIndex extends React.Component {
             node
           }, i) => (
             <div id="panel" key={i} className={styles.panelContainer}>
-              <div className={styles.panelImage}>
+              <div className={(i + 1 % 1 == 0 && styles.invertPanel) + " " + styles.panelImage}>
                 <Img className={styles.Image} fluid={node.image.fluid}/>
               </div>
               <div className={styles.panelText}>
