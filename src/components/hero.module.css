@@ -1,13 +1,12 @@
 .hero {
   position: relative;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 
 .logo {
   max-width: 250px;
-  margin: auto;
+  margin: 50px auto 20px;
 }
 
 .container {
@@ -26,8 +25,8 @@
   /* flex: 1; */
   height: 50.2vh;
   min-width: 250px;
-  width: 25vw;
-  max-height: 480px;
+  width: 100%;
+  margin: 50px;
 }
 
 .heroDetails {
@@ -36,26 +35,27 @@
   min-width: 300px;
 }
 
-@media (min-width: 715px) {
+/* @media (min-width: 715px) {
   .heroDetails {
     text-align: left;
   }
 
   .heroImage {
-    right: 0px;
+    left: 0px;
     position: relative;
   }
-}
+} */
 
 .button {
-  background: none;
-  border: white 1px solid;
+  background: linear-gradient(45deg, #24a3e5, #34d5ff);
+  border: none;
   border-radius: 5px;
   padding: 0.75rem 3rem;
   margin-top: 35px;
   font-size: 1rem;
+  font-weight: 900;
   text-transform: uppercase;
-  color: currentColor;
+  color: Black;
   transition: 200ms;
 }
 

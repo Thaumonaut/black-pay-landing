@@ -4,6 +4,25 @@ import base from './base.css'
 import Container from './container'
 
 class Template extends React.Component {
+  constructor(props) {
+    super(props)
+    this.top = React.createRef()
+  }
+
+  state = {
+    showToTop: false,
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 200) {
+        this.setState({ showToTop: true })
+      } else {
+        this.setState({ showToTop: false })
+      }
+    })
+  }
+
   render() {
     const { location, children } = this.props
     let header
@@ -15,9 +34,22 @@ class Template extends React.Component {
 
     return (
       <Container>
+        <div ref={this.top}></div>
         {/* <Navigation image={"Test"} /> */}
         {children}
         <div className="copyright">COPYRIGHT © 2020 BLACK PAY</div>
+        <div
+          className={(this.state.showToTop ? 'visible ' : 'hidden ') + 'toTop '}
+          onClick={() =>
+            this.top.current.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+              inline: 'center',
+            })
+          }
+        >
+          &#x26DB;
+        </div>
       </Container>
     )
   }
