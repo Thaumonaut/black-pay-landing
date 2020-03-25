@@ -3,7 +3,7 @@ import Img from 'gatsby-image/withIEPolyfill'
 
 import styles from './hero.module.css'
 
-export default ({ data, img, scrollTo }, props) => (
+export default ({ data, img, scrollTo }) => (
   <div className={styles.hero}>
     <Img fluid={img} className={styles.logo} />
     <div className={styles.container}>
