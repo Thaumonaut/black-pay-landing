@@ -48,7 +48,7 @@ class Template extends React.Component {
             })
           }
         >
-          &#x26DB;
+          <i className="up-arrow"></i>
         </div>
       </Container>
     )

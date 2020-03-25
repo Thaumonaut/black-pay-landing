@@ -37,7 +37,10 @@ class RootIndex extends React.Component {
           <Hero
             data={hero}
             img={testQuery.fluid}
-            scrollTo={() => this.scrollToElement()}/>{' '} {/* Move to Components later */}
+            scrollTo={() => this.scrollToElement()}
+          />
+          {/* Move to Components later */}
+
           {/* Bullet Points */}
           <div className={styles.bulletPoints}>
             <h2>Why Black Pay?</h2>
@@ -55,6 +58,7 @@ class RootIndex extends React.Component {
               ))}
             </div>
           </div>
+
           {/* Partner List */}
           <div className={styles.partnerList}>
             <h2>Our Partners</h2>
@@ -62,10 +66,9 @@ class RootIndex extends React.Component {
               {partners.map((p, i) => (<img src={p.file.url} key={i}/>))}
             </div>
           </div>
+          
           {/* Feature Panels */}
-          {panels.map(({
-            node
-          }, i) => (
+          {panels.map(({node}, i) => (
             <div id="panel" key={i} className={styles.panelContainer}>
               <div className={styles.panelImage}>
                 <Img className={styles.Image} fluid={node.image.fluid}/>
