@@ -74,10 +74,16 @@ a {
 }
 
 .copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
+  color: black;
+  background-color: white;
   text-align: center;
   font-weight: bolder;
   padding: 15px;
+  vertical-align: center;
 }
 
 #countries {
@@ -92,14 +98,14 @@ a {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  padding: 5px;
+  padding: 2px;
   box-sizing: border-box;
   border-radius: 100px;
   display: flex;
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: #ffffff;
+  background: #fafafa;
   color: black;
   filter: drop-shadow(-5px -5px 4px #00000030);
   cursor: pointer;
@@ -117,4 +123,16 @@ a {
   opacity: 0;
   transition: 500ms;
   transform: rotate(180deg);
+}
+
+.pb {
+  margin-left: 50px;
+}
+
+.pb-icons {
+  display: inline;
+  height: 50px;
+  max-width: 100px;
+  object-fit: contain;
+  padding-left: 5px;
 }

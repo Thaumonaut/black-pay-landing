@@ -1,12 +1,17 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-import Img from 'gatsby-image'
 import get from 'lodash/get'
+import styles from './index.module.css'
+
+
+/* Components */
+import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import styles from './index.module.css'
 import CountryDropdown from '../components/countries-dropdown'
+
+
 
 class RootIndex extends React.Component {
   constructor(props) {
@@ -15,10 +20,7 @@ class RootIndex extends React.Component {
   }
 
   scrollToElement() {
-    this
-      .forms
-      .current
-      .scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'})
+    this.forms.current.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'})
   }
 
   render() {
@@ -27,11 +29,11 @@ class RootIndex extends React.Component {
     const hero = get(this, 'props.data.contentfulHeroSection')
 
     const bulletPoints = get(this, 'props.data.contentfulFeatureList.bulletPoint')
-    const partners = get(this, 'props.data.contentfulPartnersList.partnerImages')
+    const partners = get(this, 'props.data.allContentfulPartnersList.edges')
     const panels = get(this, 'props.data.allContentfulFeaturePanel.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} partners={partners}>
         <div>
           <Helmet title={siteTitle}/>
           <Hero
@@ -63,10 +65,16 @@ class RootIndex extends React.Component {
           <div className={styles.partnerList}>
             <h2>Our Partners</h2>
             <div className={styles.listContainer}>
-              {partners.map((p, i) => (<img src={p.file.url} key={i}/>))}
+              {
+                partners
+                  .filter(elem => elem.node.title == "Current Partners")[0]
+                  .node
+                  .partnerImages
+                  .map((image, index) => (<img src={image.file.url} key={index}/>))
+              }
             </div>
           </div>
-          
+
           {/* Feature Panels */}
           {panels.map(({node}, i) => (
             <div id="panel" key={i} className={styles.panelContainer}>
@@ -79,6 +87,8 @@ class RootIndex extends React.Component {
               </div>
             </div>
           ))}
+
+          {/* Form */}
           <div className={styles.formsWrapper} ref={this.forms}>
             <h2>Contact</h2>
             <form
@@ -193,14 +203,20 @@ export const pageQuery = graphql `
       }
     }
 
-    contentfulPartnersList {
-      partnerImages {
-        file {
-          url
-          fileName
+    allContentfulPartnersList {
+    edges {
+      node {
+        title
+        partnerImages {
+          title
+          file {
+            url
+          }
+
         }
       }
     }
+  }
 
     contentfulFeatureList {
       bulletPoint {

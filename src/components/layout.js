@@ -37,7 +37,21 @@ class Template extends React.Component {
         <div ref={this.top}></div>
         {/* <Navigation image={"Test"} /> */}
         {children}
-        <div className="copyright">COPYRIGHT © 2020 BLACK PAY</div>
+        <div className="copyright">
+          <span>
+            COPYRIGHT © 2020 BLACK PAY
+          </span>
+          <span className="pb">
+            Powered by:
+          </span>
+          {
+            this.props.partners
+              .filter(elem => elem.node.title == "Powered By")[0]
+              .node
+              .partnerImages
+              .map((image, index) => (<img className="pb-icons" src={image.file.url} key={index}/>))
+          }
+          </div>
         <div
           className={(this.state.showToTop ? 'visible ' : 'hidden ') + 'toTop '}
           onClick={() =>
