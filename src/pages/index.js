@@ -45,7 +45,7 @@ class RootIndex extends React.Component {
             img={testQuery.fluid}
             scrollTo={() => this.scrollToElement()}
           />
-          <BulletPoint points={bulletPoints}></BulletPoint>
+          <BulletPoint points={bulletPoints} />
           <PartnerList partners={partners} />
           <FeaturePanel panels={panels} />
           <SignupForm ref={this.forms} />

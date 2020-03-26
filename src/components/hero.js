@@ -7,12 +7,14 @@ export default ({ data, img, scrollTo }) => (
   <div className={styles.hero}>
     <Img fluid={img} className={styles.logo} />
     <div className={styles.container}>
-      <Img
-        className={styles.heroImage}
-        alt={data.heroImage.title}
-        objectFit="contain"
-        fluid={data.heroImage.fluid}
-      />
+      <div className={styles.heroImageContainer}>
+        <Img
+          className={styles.heroImage}
+          alt={data.heroImage.title}
+          objectFit="contain"
+          fluid={data.heroImage.fluid}
+        />
+      </div>
       <div className={styles.heroDetails}>
         <h1 className={styles.heroHeadline}>{data.heading}</h1>
         <h3 className={styles.heroTitle}>{data.subHeading}</h3>

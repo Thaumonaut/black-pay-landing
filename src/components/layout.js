@@ -3,28 +3,16 @@ import { Link } from 'gatsby'
 import base from './base.css'
 import Container from './container'
 
+import ToTop from './top-arrow'
+
 class Template extends React.Component {
   constructor(props) {
     super(props)
     this.top = React.createRef()
   }
 
-  state = {
-    showToTop: false,
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 200) {
-        this.setState({ showToTop: true })
-      } else {
-        this.setState({ showToTop: false })
-      }
-    })
-  }
-
   render() {
-    const { location, children } = this.props
+    const { location, children, partners } = this.props
     let header
 
     let rootPath = `/`
@@ -37,33 +25,30 @@ class Template extends React.Component {
         <div ref={this.top}></div>
         {/* <Navigation image={"Test"} /> */}
         {children}
+        {/* copyright section */}
         <div className="copyright">
-          <span>
-            COPYRIGHT © 2020 BLACK PAY
-          </span>
-          <span className="pb">
-            Powered by:
-          </span>
-          {
-            this.props.partners
-              .filter(elem => elem.node.title == "Powered By")[0]
-              .node
-              .partnerImages
-              .map((image, index) => (<img className="pb-icons" src={image.file.url} key={index}/>))
-          }
+          <div className="pb">
+            <span>
+              COPYRIGHT © 2020 BLACK PAY
+            </span>
           </div>
-        <div
-          className={(this.state.showToTop ? 'visible ' : 'hidden ') + 'toTop '}
-          onClick={() =>
-            this.top.current.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-              inline: 'center',
-            })
-          }
-        >
-          <i className="up-arrow"></i>
-        </div>
+          <div className="pb">
+            <span>
+              Powered by:
+            </span>
+            {
+              partners
+                .filter(elem => elem.node.title == "Powered By")[0]
+                .node
+                .partnerImages
+                .map((image, index) => (<img className="pb-icons" src={image.file.url} key={index}/>))
+            }
+          </div>
+          </div>
+
+
+          {/* 'To Top' Button */}
+          <ToTop topRef={this.top} />
       </Container>
     )
   }
