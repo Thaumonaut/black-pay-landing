@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import styles from '../pages/index.module.css'
 
 export default ({points}) => {
@@ -6,20 +6,25 @@ export default ({points}) => {
   const transitionIn = "fadeIn"
   const transitionOut = "fadeOut"
 
-  let observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add(transitionIn)
-        entry.target.classList.remove(transitionOut)
-      } else {
-        entry.target.classList.add(transitionOut)
-        entry.target.classList.remove(transitionIn)
-      }
-    });
-  }, {threshold: 0.2 });
+  const observer = useRef();
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add(transitionIn)
+          entry.target.classList.remove(transitionOut)
+        } else {
+          entry.target.classList.add(transitionOut)
+          entry.target.classList.remove(transitionIn)
+        }
+      });
+    }, {threshold: 0.2 });
+  }, [])
+
 
   let initArray = function(event) {
-    observer.observe(event.currentTarget)
+    observer.current.observe(event.currentTarget)
   }
 
   return (

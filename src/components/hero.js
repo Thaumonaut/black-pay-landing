@@ -5,11 +5,12 @@ import styles from './hero.module.css'
 
 export default ({ data, img, scrollTo }) => (
   <div className={styles.hero}>
-    <Img fluid={img} className={styles.logo} />
+    <Img fluid={img} className={styles.logo + " animated fadeInUp delay-500ms"} />
     <div className={styles.container}>
       <div className={styles.heroImageContainer}>
         <Img
-          className={styles.heroImage}
+          className={styles.heroImage +
+          " animated fadeInLeft delay-1s"}
           alt={data.heroImage.title}
           objectFit="contain"
           fluid={data.heroImage.fluid}
