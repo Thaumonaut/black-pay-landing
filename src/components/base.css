@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oxanium:800|Saira:300,400&display=swap');
+@import url('../components/animate.css');
 
 html,
 body {
@@ -14,6 +15,10 @@ body {
   color: #fafafa;
   background: #232323;
   margin: 0px;
+}
+
+#top {
+  scroll-behavior: smooth;
 }
 
 img {
@@ -74,10 +79,17 @@ a {
 }
 
 .copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
+  box-sizing: border-box;
+  color: black;
+  background-color: white;
   text-align: center;
   font-weight: bolder;
-  padding: 15px;
+  padding: 25px 10px;
+  flex-wrap: wrap;
 }
 
 #countries {
@@ -92,25 +104,44 @@ a {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  padding: 15px;
+  padding: 2px;
   box-sizing: border-box;
   border-radius: 100px;
   display: flex;
-  padding-top: 9px;
   justify-content: center;
-  font-size: 1.5em;
-  font-weight: 300;
   width: 50px;
   height: 50px;
-  transform: rotate(180deg);
-  background: #ffffff;
+  background: #fafafa;
   color: black;
   filter: drop-shadow(-5px -5px 4px #00000030);
   cursor: pointer;
   transition: 500ms;
 }
 
+.up-arrow {
+  background-image: url('../../static/img/up-arrow.svg');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
 .hidden {
   opacity: 0;
   transition: 500ms;
+}
+
+.pb {
+  margin-bottom: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pb-icons {
+  display: inline;
+  height: 50px;
+  max-width: 100px;
+  object-fit: contain;
+  padding-left: 5px;
 }

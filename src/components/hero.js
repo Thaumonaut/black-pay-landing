@@ -3,16 +3,20 @@ import Img from 'gatsby-image/withIEPolyfill'
 
 import styles from './hero.module.css'
 
-export default ({ data, img, scrollTo }, props) => (
+export default ({ data, img, scrollTo }) => (
   <div className={styles.hero}>
-    <Img fluid={img} className={styles.logo} />
+    <Img fluid={img} className={styles.logo + " animated fadeInUp delay-500ms"} />
     <div className={styles.container}>
-      <Img
-        className={styles.heroImage}
-        alt={data.heroImage.title}
-        objectFit="contain"
-        fluid={data.heroImage.fluid}
-      />
+      <div className={styles.heroImageContainer}>
+        <Img
+          className={styles.heroImage +
+          " animated fadeInLeft"}
+          style={{animationDelay: "500ms"}}
+          alt={data.heroImage.title}
+          objectFit="contain"
+          fluid={data.heroImage.fluid}
+        />
+      </div>
       <div className={styles.heroDetails}>
         <h1 className={styles.heroHeadline}>{data.heading}</h1>
         <h3 className={styles.heroTitle}>{data.subHeading}</h3>
