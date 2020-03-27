@@ -10,7 +10,8 @@ export default ({ data, img, scrollTo }) => (
       <div className={styles.heroImageContainer}>
         <Img
           className={styles.heroImage +
-          " animated fadeInLeft delay-1s"}
+          " animated fadeInLeft"}
+          style={{animationDelay: "500ms"}}
           alt={data.heroImage.title}
           objectFit="contain"
           fluid={data.heroImage.fluid}

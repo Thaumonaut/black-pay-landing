@@ -23,11 +23,17 @@
     the viewport width
   */
   flex: 1;
-  height: 60vh;
+  height: 75vh;
   min-width: 30vw;
   max-width: 400px;
   width: 70vw;
   margin: 15px;
+}
+
+@media (max-width: 900px) {
+  .heroImage {
+    height: 60vh;
+  }
 }
 
 .heroImageContainer {
@@ -41,7 +47,7 @@
   min-width: 300px;
 }
 
-@media (min-width: 715px) {
+@media (min-width: 900px) {
   .heroDetails {
     text-align: left;
   }

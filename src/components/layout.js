@@ -22,7 +22,7 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <div ref={this.top}></div>
+        <div ref={this.top} id="top"></div>
         {/* <Navigation image={"Test"} /> */}
         {children}
         {/* copyright section */}
@@ -34,7 +34,7 @@ class Template extends React.Component {
           </div>
           <div className="pb">
             <span>
-              Powered by:
+              Technology Powered By:
             </span>
             {
               partners

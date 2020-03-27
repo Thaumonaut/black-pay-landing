@@ -17,6 +17,10 @@ body {
   margin: 0px;
 }
 
+#top {
+  scroll-behavior: smooth;
+}
+
 img {
   display: block;
   width: 100%;
@@ -124,7 +128,6 @@ a {
 .hidden {
   opacity: 0;
   transition: 500ms;
-  transform: rotate(180deg);
 }
 
 .pb {

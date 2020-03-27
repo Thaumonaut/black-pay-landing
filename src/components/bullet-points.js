@@ -1,25 +1,31 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import styles from '../pages/index.module.css'
 
 export default ({points}) => {
 
-  const transitionIn = "fadeIn"
-  const transitionOut = "fadeOut"
+  const transitionIn = "fadeInUp"
+  const transitionOut = "hidden"
+
+  const [doDelay, setDelay] = useState(true)
 
   const observer = useRef();
 
   useEffect(() => {
+
+    const mql = window.matchMedia("(min-width: 1340px)")
+    mql.addEventListener("change", (e) => {
+      console.log(mql.matches)
+      setDelay(mql.matches)
+    })
+
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if(entry.isIntersecting) {
           entry.target.classList.add(transitionIn)
           entry.target.classList.remove(transitionOut)
-        } else {
-          entry.target.classList.add(transitionOut)
-          entry.target.classList.remove(transitionIn)
         }
       });
-    }, {threshold: 0.2 });
+    }, {threshold: 0.3 });
   }, [])
 
 
@@ -32,7 +38,11 @@ export default ({points}) => {
     <h2>Why Black Pay?</h2>
     <div className={styles.bulletPointsWrapper}>
       {points.map((point, i) => (
-        <div key={i} onLoad={(e) => initArray(e)} className="animated faster">
+        <div key={i}
+          onLoad={(e) => initArray(e)}
+          className="animated faster hidden"
+          style={{animationDelay: (doDelay ? (i * 100) + "ms" : "250ms")}}
+        >
           <img
             className={styles.bulletPointIcon + " animated faster"}
 
