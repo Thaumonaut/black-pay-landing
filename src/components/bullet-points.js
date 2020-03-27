@@ -4,7 +4,6 @@ import styles from '../pages/index.module.css'
 export default ({points}) => {
 
   const transitionIn = "fadeInUp"
-  const transitionOut = "hidden"
 
   const [doDelay, setDelay] = useState(true)
 
@@ -40,7 +39,7 @@ export default ({points}) => {
       {points.map((point, i) => (
         <div key={i}
           onLoad={(e) => initArray(e)}
-          className="animated faster hidden"
+          className="animated faster"
           style={{animationDelay: (doDelay ? (i * 100) + "ms" : "250ms")}}
         >
           <img
